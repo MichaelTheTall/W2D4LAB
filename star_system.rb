@@ -38,4 +38,19 @@ def get_number_of_planets_closer_than(num)
   return arr.count
 end
 
+def get_total_number_of_moons
+  total = @planets.map {|p| p.number_of_moons}
+  return total.inject(0, :+)
+end
+
+def get_planet_names_sorted_by_increasing_distance_from_sun
+  arr = @planets.sort_by!{|p| p.distance_from_sun}
+  return arr.map{|p| p.name}
+end
+
+def get_planet_names_sorted_by_size_decreasing
+  arr = @planets.sort_by!{|p| p.diameter}
+  return arr.map{|p| p.name}.reverse
+end
+
 end
